@@ -177,13 +177,13 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12px;color:var(--mu
 
 /* five nights: each diya lights as it scrolls into view */
 .nights{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:14px;max-width:820px}
-.nights li{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px;align-items:center;background:var(--card);border-radius:18px;padding:20px 22px;box-shadow:0 0 0 1px rgba(0,0,0,.06);transition:transform .5s var(--ease),box-shadow .5s}
+.nights li{display:grid;grid-template-columns:124px minmax(0,1fr);gap:18px;align-items:center;background:var(--card);border-radius:18px;padding:20px 22px;box-shadow:0 0 0 1px rgba(0,0,0,.06);transition:transform .5s var(--ease),box-shadow .5s}
 .nights li.lit{box-shadow:0 0 0 1px rgba(255,106,61,.35),0 24px 50px -34px rgba(255,106,61,.7)}
 .nights b{display:block;font-size:19px;letter-spacing:-.02em}
 .nights p{margin:6px 0 0;color:var(--muted)}
-.lamp{display:block;width:118px}
-.lamp img{width:100%;height:auto;filter:grayscale(.85) brightness(.75) opacity(.55);transition:filter 1.2s var(--ease)}
-.nights li.lit .lamp img{filter:drop-shadow(0 -6px 14px rgba(255,170,60,.55)) drop-shadow(0 6px 10px rgba(120,50,10,.18))}
+.lamp{display:block;width:124px}
+.lamp img{width:100%;height:auto;filter:brightness(.92) saturate(.9);transition:filter 1.2s var(--ease)}
+.nights li.lit .lamp img{filter:drop-shadow(0 -4px 18px rgba(255,170,60,.35))}
 @media (max-width:520px){.nights li{grid-template-columns:86px minmax(0,1fr);gap:14px}.lamp{width:86px}}
 .skt{font-family:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif;font-weight:400;color:var(--accent);margin-right:6px}
 .band .skt-big{font-family:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif;font-size:clamp(1.25rem,2.8vw,1.9rem);line-height:1.6;color:#ffd9a8;margin:0 auto 26px;max-width:820px}
@@ -277,11 +277,11 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12px;color:var(--mu
     <p class="kick">Five nights, five lessons</p>
     <h2>Diwali is not one night. It is <mark>a five-day course</mark> in how to live.</h2>
     <ol class="nights" id="nights">
-      <li><span class="lamp" aria-hidden="true"><img src="media/diya-alpha.png" data-lit="media/diya-alpha.webp" alt="" width="276" height="180"></span><div><b>Dhanteras</b><p>We buy a little gold or a new vessel, and thank Dhanvantari, the healer. The lesson: health is the first wealth. Everything else is counted after it.</p></div></li>
-      <li><span class="lamp" aria-hidden="true"><img src="media/diya-alpha.png" data-lit="media/diya-alpha.webp" alt="" width="276" height="180"></span><div><b>Naraka Chaturdashi</b><p>Krishna defeats Narakasura, the demon who kept others captive. The lesson: before the new year, set free whatever has been holding you back. Old grudges, old fears, old pending work.</p></div></li>
-      <li><span class="lamp" aria-hidden="true"><img src="media/diya-alpha.png" data-lit="media/diya-alpha.webp" alt="" width="276" height="180"></span><div><b>Lakshmi Puja</b><p>Homes are cleaned, lamps line every door, and Lakshmi is said to enter only where there is light and order. The lesson: prosperity is invited, not chased.</p></div></li>
-      <li><span class="lamp" aria-hidden="true"><img src="media/diya-alpha.png" data-lit="media/diya-alpha.webp" alt="" width="276" height="180"></span><div><b>Govardhan Puja &middot; Bestu Varas</b><p>Krishna lifts a mountain to shelter a whole village. In Gujarat, it is also our New Year, Saal Mubarak. The lesson: real strength is the shelter you give others.</p></div></li>
-      <li><span class="lamp" aria-hidden="true"><img src="media/diya-alpha.png" data-lit="media/diya-alpha.webp" alt="" width="276" height="180"></span><div><b>Bhai Dooj</b><p>Yamuna feeds her brother Yama, and even the lord of death goes home blessed. The lesson: in the end, our people are the only balance sheet that matters.</p></div></li>
+      <li><span class="lamp" aria-hidden="true"><img src="media/diya-unlit.png" data-lit="media/diya-lit.webp" alt="" width="273" height="195"></span><div><b>Dhanteras</b><p>We buy a little gold or a new vessel, and thank Dhanvantari, the healer. The lesson: health is the first wealth. Everything else is counted after it.</p></div></li>
+      <li><span class="lamp" aria-hidden="true"><img src="media/diya-unlit.png" data-lit="media/diya-lit.webp" alt="" width="273" height="195"></span><div><b>Naraka Chaturdashi</b><p>Krishna defeats Narakasura, the demon who kept others captive. The lesson: before the new year, set free whatever has been holding you back. Old grudges, old fears, old pending work.</p></div></li>
+      <li><span class="lamp" aria-hidden="true"><img src="media/diya-unlit.png" data-lit="media/diya-lit.webp" alt="" width="273" height="195"></span><div><b>Lakshmi Puja</b><p>Homes are cleaned, lamps line every door, and Lakshmi is said to enter only where there is light and order. The lesson: prosperity is invited, not chased.</p></div></li>
+      <li><span class="lamp" aria-hidden="true"><img src="media/diya-unlit.png" data-lit="media/diya-lit.webp" alt="" width="273" height="195"></span><div><b>Govardhan Puja &middot; Bestu Varas</b><p>Krishna lifts a mountain to shelter a whole village. In Gujarat, it is also our New Year, Saal Mubarak. The lesson: real strength is the shelter you give others.</p></div></li>
+      <li><span class="lamp" aria-hidden="true"><img src="media/diya-unlit.png" data-lit="media/diya-lit.webp" alt="" width="273" height="195"></span><div><b>Bhai Dooj</b><p>Yamuna feeds her brother Yama, and even the lord of death goes home blessed. The lesson: in the end, our people are the only balance sheet that matters.</p></div></li>
     </ol>
   </div>
 </section>
