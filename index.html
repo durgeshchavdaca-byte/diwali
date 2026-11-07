@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#fbfaf7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400;500&family=Caveat:wght@500;600;700&family=Tiro+Devanagari+Sanskrit&display=swap">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 8c6 10 10 16 10 22a10 10 0 0 1-20 0c0-6 4-12 10-22z' fill='%23ff6a3d'/%3E%3Cpath d='M10 40h44c-2 9-11 16-22 16S12 49 10 40z' fill='%23111'/%3E%3C/svg%3E">
 <style>
 :root{
@@ -170,6 +170,22 @@ h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;letter-spacing:-.035em;lin
 .close .hand{color:#ffc266;font-size:26px;margin-top:26px;display:block}
 footer{padding:28px 0 40px;font-family:var(--mono);font-size:12px;color:var(--muted)}
 
+
+/* five nights: each diya lights as it scrolls into view */
+.nights{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:14px;max-width:820px}
+.nights li{display:grid;grid-template-columns:54px minmax(0,1fr);gap:18px;align-items:start;background:var(--card);border-radius:18px;padding:20px 22px;box-shadow:0 0 0 1px rgba(0,0,0,.06);transition:transform .5s var(--ease),box-shadow .5s}
+.nights li.lit{box-shadow:0 0 0 1px rgba(255,106,61,.35),0 24px 50px -34px rgba(255,106,61,.7)}
+.nights b{display:block;font-size:19px;letter-spacing:-.02em}
+.nights p{margin:6px 0 0;color:var(--muted)}
+.dl{position:relative;width:46px;height:40px;margin-top:4px}
+.dl::before{content:"";position:absolute;left:3px;right:3px;bottom:2px;height:16px;border-radius:0 0 40px 40px;background:linear-gradient(#c9773c,#7a3d14)}
+.dl::after{content:"";position:absolute;left:50%;bottom:16px;width:12px;height:20px;margin-left:-6px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(ellipse at 50% 70%,#fff7cf 0%,#ffcf4d 42%,#ff7a1a 78%,transparent 80%);opacity:.15;transform:scale(.6);transition:opacity .6s,transform .6s;filter:drop-shadow(0 0 8px rgba(255,160,40,.8))}
+.nights li.lit .dl::after{opacity:1;transform:scale(1);animation:flick 1.6s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.1,1.16) rotate(2deg)}}
+.skt{font-family:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif;font-weight:400;color:var(--accent);margin-right:6px}
+.band .skt-big{font-family:"Tiro Devanagari Sanskrit","Noto Serif Devanagari",serif;font-size:clamp(1.25rem,2.8vw,1.9rem);line-height:1.6;color:#ffd9a8;margin:0 auto 26px;max-width:820px}
+.letter em{font-style:italic}
+@media (prefers-reduced-motion:reduce){.nights li.lit .dl::after{animation:none}}
 @media (prefers-reduced-motion:reduce){
   .circ path{animation:none;stroke-dashoffset:0}
   mark{transition:none;background-size:100% 100%}
@@ -193,8 +209,8 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12px;color:var(--mu
         <svg viewBox="0 0 60 34" aria-hidden="true"><path d="M2 8c14-6 30-4 38 8 4 6 3 12-2 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M34 24l4 7 7-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
       <h1>Shubh <span class="circ">Deepavali<svg viewBox="0 0 300 110" preserveAspectRatio="none" aria-hidden="true"><path d="M150 8C70 6 10 22 8 54c-2 34 70 50 146 48 78-2 140-20 138-52C290 18 220 4 132 10"/></svg></span></h1>
-      <p class="lead">From our home in Ahmedabad to yours, wishing you <mark>light</mark>, good health and a <mark>prosperous year</mark> ahead.</p>
-      <p class="sub">Thank you for trusting us with your numbers, your plans and sometimes your 2 AM questions. This one is just to say thank you.</p>
+      <p class="lead">Thousands of years ago, a whole city lit lamps so that <mark>one person could find his way home</mark>. We still do it. Every year. For each other.</p>
+      <p class="sub"><span class="skt">तमसो मा ज्योतिर्गमय</span> Lead me from darkness to light. That is the whole of Diwali in four words, and our wish for you this year.</p>
       <div class="loc"><span><b></b>Ahmedabad, India</span><span>Sunday, 8 November 2026</span><span>Samvat 2083</span></div>
       <div class="ctas">
         <a class="btn btn-ink" href="https://wa.me/917801887130?text=Hi%20Durgesh%2C%20Happy%20Diwali%20to%20you%20too!" target="_blank" rel="noopener">Wish us back</a>
@@ -224,26 +240,28 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12px;color:var(--mu
 <section class="band" aria-label="A wish">
   <video id="bokeh" autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="media/bokeh.mp4" type="video/mp4"></video>
   <div class="wrap">
-    <p class="big">May every diya you light this Diwali <em>find its way back to you</em>, a hundredfold.</p>
-    <p class="by">~ Durgesh &amp; team</p>
+    <p class="skt-big">शुभं करोति कल्याणम् आरोग्यं धनसम्पदा ।<br>शत्रुबुद्धिविनाशाय दीपज्योतिर्नमोऽस्तु ते ॥</p>
+    <p class="big">I bow to the light of the lamp. It brings <em>goodness, health and wealth</em>, and burns away the enemy within.</p>
+    <p class="by">~ the evening prayer our grandmothers whispered as they lit the first diya</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
-    <p class="kick">Our Diwali, in three frames</p>
-    <h2>The quiet part of the <mark class="or">festival</mark>, before the crackers start.</h2>
+    <p class="kick">Why the flame always points up</p>
+    <h2>Tilt a diya any way you like. <mark class="or">The flame still rises.</mark></h2>
+    <p class="secsub">Our elders said that is the nature of the atman, the self. Knocked down, turned around, it still reaches upward. Whatever this year bent in your life, may it find its way back up.</p>
     <div class="wall">
       <figure class="pol tilt" style="margin:0"><span class="tape"></span>
         <video autoplay muted loop playsinline preload="metadata" poster="media/thali.jpg" aria-label="Diyas being arranged on a carpet of marigolds"><source src="media/thali.mp4" type="video/mp4"></video>
-        <figcaption>marigolds everywhere</figcaption>
+        <figcaption>a carpet of marigolds for Ma Lakshmi</figcaption>
       </figure>
       <figure class="pol tilt" style="margin:0"><span class="tape o"></span>
-        <video autoplay muted loop playsinline preload="metadata" poster="media/candle.jpg" aria-label="A woman in festive attire holding a lit candle"><source src="media/candle.mp4" type="video/mp4"></video>
-        <figcaption>first lamp of the evening</figcaption>
+        <video autoplay muted loop playsinline preload="metadata" poster="media/flame.jpg" aria-label="A single candle flame burning steadily in the dark"><source src="media/flame.mp4" type="video/mp4"></video>
+        <figcaption>one flame, rising</figcaption>
       </figure>
       <figure class="pol tilt" style="margin:0"><span class="tape"></span>
-        <video autoplay muted loop playsinline preload="metadata" poster="media/glass.jpg" aria-label="Small candles being placed in glass holders"><source src="media/glass.mp4" type="video/mp4"></video>
+        <video autoplay muted loop playsinline preload="metadata" poster="media/glass.jpg" aria-label="Small lamps being placed in glass holders"><source src="media/glass.mp4" type="video/mp4"></video>
         <figcaption>one for every window</figcaption>
       </figure>
     </div>
@@ -252,12 +270,27 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12px;color:var(--mu
 
 <section class="sec">
   <div class="wrap">
+    <p class="kick">Five nights, five lessons</p>
+    <h2>Diwali is not one night. It is <mark>a five-day course</mark> in how to live.</h2>
+    <ol class="nights" id="nights">
+      <li><span class="dl" aria-hidden="true"></span><div><b>Dhanteras</b><p>We buy a little gold or a new vessel, and thank Dhanvantari, the healer. The lesson: health is the first wealth. Everything else is counted after it.</p></div></li>
+      <li><span class="dl" aria-hidden="true"></span><div><b>Naraka Chaturdashi</b><p>Krishna defeats Narakasura, the demon who kept others captive. The lesson: before the new year, set free whatever has been holding you back. Old grudges, old fears, old pending work.</p></div></li>
+      <li><span class="dl" aria-hidden="true"></span><div><b>Lakshmi Puja</b><p>Homes are cleaned, lamps line every door, and Lakshmi is said to enter only where there is light and order. The lesson: prosperity is invited, not chased.</p></div></li>
+      <li><span class="dl" aria-hidden="true"></span><div><b>Govardhan Puja &middot; Bestu Varas</b><p>Krishna lifts a mountain to shelter a whole village. In Gujarat, it is also our New Year, Saal Mubarak. The lesson: real strength is the shelter you give others.</p></div></li>
+      <li><span class="dl" aria-hidden="true"></span><div><b>Bhai Dooj</b><p>Yamuna feeds her brother Yama, and even the lord of death goes home blessed. The lesson: in the end, our people are the only balance sheet that matters.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
     <p class="kick">A note from my desk</p>
     <div class="letter-g">
       <div class="letter">
-        <p>In Gujarat, Diwali is also when businesses close the old account books and open a fresh one on Lakshmi Puja. Chopda pujan. As a CA, I&rsquo;ve always loved that the new year here starts with clean books.</p>
-        <p>A clean start matters. So before the year ends, I&rsquo;ve put a few dates and tools below that are worth a look. No sales pitch, just the things people keep asking us about this month.</p>
-        <p>And if there&rsquo;s anything on your mind, a return, money to move, a new company, just message me. Happy to help, festival or not.</p>
+        <p>Here in Gujarat, on Lakshmi Puja, traders close the old <em>chopda</em> and open a new one. On its first page they write two words, side by side: <strong>शुभ लाभ</strong>. Shubh, then Labh. Goodness first, then gain.</p>
+        <p>I have spent my working life inside account books, and I have never found a better business philosophy than those two words in that order. The numbers that last are the ones earned the right way.</p>
+        <p>Krishna put it more simply in the Gita: <span class="skt">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन</span> Your right is to the work, never to its fruit. Do the work well, and leave the rest to Ma Lakshmi.</p>
+        <p>Thank you for letting us be a small part of your work this year. May your new chopda have more shubh, more labh, and fewer surprises. And if anything is weighing on you before the year closes, message me. Festival or not.</p>
         <p class="sig">Durgesh</p>
         <p class="role">CA Durgesh Chavda &middot; Bharat Quantum Prospera</p>
       </div>
@@ -274,22 +307,11 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12px;color:var(--mu
   </div>
 </section>
 
-<section class="sec">
-  <div class="wrap">
-    <p class="kick">Samvat 2082, looking back</p>
-    <h2>A year of new rooms, <mark>new people</mark>, and a lot of chai.</h2>
-    <div class="strip">
-      <figure class="pol" style="margin:0"><span class="tape"></span><img src="media/icai.webp" alt="Durgesh speaking at the ICAI GST conference in Rajkot" width="300" height="225" loading="lazy"><figcaption>speaking at ICAI, Rajkot</figcaption></figure>
-      <figure class="pol" style="margin:0"><span class="tape o"></span><img src="media/jakarta.webp" alt="Durgesh with founders at the Jakarta Investment Festival" width="300" height="225" loading="lazy"><figcaption>Jakarta Investment Festival</figcaption></figure>
-      <figure class="pol" style="margin:0"><span class="tape"></span><img src="media/thali.jpg" alt="Diyas and marigolds" width="300" height="225" loading="lazy"><figcaption>and now, Diwali</figcaption></figure>
-    </div>
-  </div>
-</section>
 
 <section class="sec">
   <div class="wrap">
     <p class="kick">Before 31 December</p>
-    <h2>Five dates I&rsquo;d put on the fridge</h2>
+    <h2>Before the lamps go out: five dates to remember</h2>
     <p class="secsub">Hover, or tap on your phone, to flip a card.</p>
     <div class="cards">
       <button class="flip" type="button" aria-label="21 November: ITR for audit cases"><div class="fi">
@@ -346,15 +368,15 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12px;color:var(--mu
 <section class="close" aria-label="Get in touch">
   <video autoplay muted loop playsinline preload="metadata" poster="media/fireworks.jpg" aria-hidden="true"><source src="media/fireworks.mp4" type="video/mp4"></video>
   <div class="wrap">
-    <p class="kick" style="color:#ffc266">After the crackers settle</p>
-    <h2>Planning something new for Samvat 2083?</h2>
-    <p>A company abroad, money to move, a filing you&rsquo;ve been putting off. Tell me what you have in mind and I&rsquo;ll tell you the cleanest way to do it.</p>
+    <p class="kick" style="color:#ffc266">Saal Mubarak &middot; Samvat 2083</p>
+    <h2>A new year begins. What will you light first?</h2>
+    <p>A company you have been dreaming about, money to bring home, a filing you have been putting off. Tell me what you have in mind and we will find the cleanest path to it, together.</p>
     <div class="ctas">
       <a class="btn btn-ink" href="https://wa.me/917801887130?text=Hi%20Durgesh%2C%20Happy%20Diwali!%20I%20wanted%20to%20discuss%20something." target="_blank" rel="noopener">WhatsApp me</a>
       <a class="btn btn-soft" href="https://topmate.io/cadurgesh_chavda/741484" target="_blank" rel="noopener">Book a 15-min call</a>
     </div>
     <p class="mono">hello@durgeshchavda.com &middot; +91 78018 87130</p>
-    <span class="hand">Happy Diwali, from all of us ✦</span>
+    <span class="hand">May your home be full of light, and your heart even fuller. Happy Diwali ✦</span>
   </div>
 </section>
 
@@ -373,6 +395,13 @@ footer{padding:28px 0 40px;font-family:var(--mono);font-size:12px;color:var(--mu
     var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold: .6});
     marks.forEach(function(m){ io.observe(m); });
   } else marks.forEach(function(m){ m.classList.add('in'); });
+
+  // light each diya in the five nights as it comes into view
+  var nights = document.querySelectorAll('#nights li');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io2 = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('lit'); io2.unobserve(e.target); } }); }, {threshold: .7});
+    nights.forEach(function(n){ io2.observe(n); });
+  } else nights.forEach(function(n){ n.classList.add('lit'); });
 
   if (reduce) return;
 
